@@ -1,0 +1,34 @@
+<table class="table table-bordered" ng-if="rates.length >0">
+    <thead>
+      <tr>
+        <th>
+          <a href="" ng-click="sortType = 'bank'; sortReverse = !sortReverse">
+            bank
+            <span ng-show="sortType == 'bank'" class="glyphicon" ng-class="{'glyphicon-sort-by-alphabet': !sortReverse ,'glyphicon-sort-by-alphabet-alt':sortReverse}"></span>
+          </a>
+        </th>
+        <th>
+          <a href="" ng-click="sortType = 'buy'; sortReverse = !sortReverse">
+            Buy
+            <span ng-show="sortType == 'buy'" class="glyphicon" ng-class="{'glyphicon-sort-by-order': !sortReverse ,'glyphicon-sort-by-order-alt':sortReverse}"></span>
+            </a>
+        </th>
+        <th>
+          <a href="" ng-click="sortType = 'sell'; sortReverse = !sortReverse">
+        sell
+        <span ng-show="sortType == 'sell'" class="glyphicon" ng-class="{'glyphicon-sort-by-order': !sortReverse ,'glyphicon-sort-by-order-alt':sortReverse}"></span>
+         </a>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr ng-repeat="item in rates | orderBy:sortType:sortReverse" class="item">
+        <td>{{item.bank}}</td>
+        <td>{{item.buy}}</td>
+        <td>{{item.sell}}</td>
+      </tr>
+    </tbody>
+  </table>
+<span ng-if="rates.length <=0" class="row">
+  No Rates Found
+</span>
