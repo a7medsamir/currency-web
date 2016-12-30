@@ -1,20 +1,30 @@
 'use strict';
-
 // Declare app level module which depends on views, and components
-angular.module('myApp', [
-  'ngRoute',
-  'myApp.home',
-  'myApp.about',
-  'myApp.currency',
-  'myApp.version'
-]).
-config(['$locationProvider', '$routeProvider', function($locationProvider, $routeProvider) {
-  $locationProvider.hashPrefix('!');
-//go to defaul tab
-  $routeProvider.otherwise({redirectTo: '/currency'});
-}]).run(['$rootScope', '$location', function($rootScope, $location){
-   var path = function() { return $location.path();};
-   $rootScope.$watch(path, function(newVal, oldVal){
-     $rootScope.activetab = newVal;
-   });
-}]);
+angular
+    .module('App', [
+    'ngRoute',
+    'App.home',
+    'App.about',
+    'App.currency',
+    'App.version'
+])
+    .config(initRouter);
+function initRouter($locationProvider, $routeProvider) {
+    $locationProvider.hashPrefix('!');
+    // go to defaul tab
+    $routeProvider.otherwise({ redirectTo: '/currency' });
+    $routeProvider.when('/home', {
+        templateUrl: 'Views/home/index.html',
+        controller: 'HomeController'
+    });
+    $routeProvider.when('/about', {
+        templateUrl: 'views/about/index.html',
+        controller: 'AboutController'
+    });
+    $routeProvider.when('/currency', {
+        templateUrl: 'views/currency/index.html',
+        controller: 'currencyCtrl'
+    });
+}
+;
+//# sourceMappingURL=app.js.map

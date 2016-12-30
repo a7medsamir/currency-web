@@ -1,13 +1,13 @@
 'use strict';
-
-angular.module('myApp.about', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/about', {
-    templateUrl: 'views/about/index.html',
-    controller: 'AboutCtrl'
-  });
-}])
-
-.controller('AboutCtrl', function($scope) {
-});
+/**
+ * About view controller
+ */
+var AboutController = (function () {
+    function AboutController($scope) {
+        this.scope = $scope;
+    }
+    return AboutController;
+}());
+angular.module('App.about', [])
+    .controller('AboutController', AboutController);
+//# sourceMappingURL=controller.js.map

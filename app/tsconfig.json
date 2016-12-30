@@ -1,0 +1,12 @@
+{
+    "compilerOptions": {
+        "noImplicitAny": false,
+        "removeComments": false,
+        "preserveConstEnums": true,
+        "target": "es5",
+        "module": "commonjs",
+        "sourceMap": true,
+        "listFiles": true,
+        "noEmitOnError": false
+    }
+}

@@ -1,14 +1,14 @@
 'use strict';
-
-angular.module('myApp.home', ['ngRoute'])
-
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.when('/home', {
-    templateUrl: 'Views/home/index.html',
-    controller: 'HomeCtrl'
-  });
-}])
-
-.controller('HomeCtrl', function($scope) {
-$scope.message1="hello world";
-});
+/**
+ * Home view controller
+ */
+var HomeController = (function () {
+    function HomeController($scope) {
+        this.scope = $scope;
+    }
+    return HomeController;
+}());
+angular
+    .module('App.home', ['ngRoute'])
+    .controller('HomeController', HomeController);
+//# sourceMappingURL=controller.js.map

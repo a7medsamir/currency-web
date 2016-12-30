@@ -1,10 +1,10 @@
 <div>
   <ul class="nav nav-pills">
-    <li class="nav-item" ng-class="{active: CurrentCurrencyCode == item}" ng-repeat="item in CurreciesCodes">
-      <a href="" class="nav-link" ng-click="Refresh(item)">{{item}}</a>
+    <li class="nav-item" ng-class="{active: vm.CurrentCurrencyCode == item}" ng-repeat="item in vm.CurreciesCodes">
+      <a href="" class="nav-link" ng-click="vm.Refresh(item)">{{item}}</a>
     </li>
   </ul>
   <br>
-  <currency-rates rates='list' sort-type='buy' sort-reverse=true ></currency-rates>
+  <currency-rates rates='vm.list' sort-type='buy' sort-reverse=true ></currency-rates>
 <br>
 </div>
